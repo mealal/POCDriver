@@ -322,7 +322,7 @@ public class POCTestOptions {
 
 		if(cmd.hasOption("location")){
 			String areaCodesInString = cmd.getOptionValue("location");
-			if(areaCodesInString.equalsIgnoreCase("random")){
+			if("random".equalsIgnoreCase(areaCodesInString)) {
 				locationCodes = defaultLocationCodes;
 			} else if (areaCodesInString != null){
 				locationCodes = areaCodesInString.split(",");

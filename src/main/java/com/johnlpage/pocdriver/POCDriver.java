@@ -60,8 +60,7 @@ public class POCDriver {
                 1, 12345678, testOpts.NUMBER_SIZE, arr, testOpts.blobSize, testOpts.locationCodes);
         //System.out.println(tr);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        JsonParser jp = new JsonParser();
-        JsonElement je = jp.parse(tr.internalDoc.toJson());
+        JsonElement je = JsonParser.parseString(tr.internalDoc.toJson());
 
         String json = gson.toJson(je);
         StringBuilder newJson = new StringBuilder();
