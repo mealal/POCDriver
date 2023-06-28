@@ -96,6 +96,7 @@ public class POCTestOptions {
 		cliopt.addOption("x","indexes",true,"Number of secondary indexes - does not remove existing (default 0)");
 		cliopt.addOption("y","collections",true,"Number of collections to span the workload over, implies w (default 1)");
 		cliopt.addOption("z","zipfian",true,"Enable zipfian distribution over X number of documents (default 0)");
+		cliopt.addOption("ss","singleserver",true,"Force single server option");
 		cliopt.addOption(null,"threadIdStart",true,"Start 'workerId' for each thread. 'w' value in _id. (default 0)");
 		cliopt.addOption(null,"fulltext",false,"Create fulltext index (default false)");
 		cliopt.addOption(null,"binary",true,"Add a binary blob of size KB");
@@ -211,6 +212,10 @@ public class POCTestOptions {
 		if(cmd.hasOption("y"))
 		{
 			numcollections = Integer.parseInt(cmd.getOptionValue("y"));
+			singleserver=true;
+		}
+		if(cmd.hasOption("ss"))
+		{
 			singleserver=true;
 		}
 		if(cmd.hasOption("z"))

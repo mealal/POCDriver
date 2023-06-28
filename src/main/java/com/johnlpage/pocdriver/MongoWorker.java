@@ -155,7 +155,9 @@ public class MongoWorker implements Runnable {
         mongoClient = c;
         logger = LoggerFactory.getLogger(MongoWorker.class);
         // Ping
-        c.getDatabase("admin").runCommand(new Document("ping", 1));
+        if (!t.singleserver) {
+            c.getDatabase("admin").runCommand(new Document("ping", 1));
+        }
         testOpts = t;
         testResults = r;
         workerID = id;
