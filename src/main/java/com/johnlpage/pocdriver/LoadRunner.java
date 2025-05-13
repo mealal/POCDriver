@@ -132,6 +132,7 @@ public class LoadRunner {
         PrepareSystem(testOpts, testResults);
         // Report on progress by looking at testResults
         POCTestReporter reporter = new POCTestReporter(testResults, mongoClient, testOpts);
+        reporter.outHeader();
 
         // Using a thread pool we keep filled
         ExecutorService testexec = Executors.newFixedThreadPool(testOpts.numThreads);
